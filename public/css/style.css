@@ -300,30 +300,25 @@ h3 {
     max-width: 36rem;
 }
 
-/* Entry rows — clean bordered rows replacing timelines */
+/* Entry rows — clean bordered rows */
 
-.timeline {
+.entry-list {
     display: grid;
-    gap: 1rem;
-    margin-top: 1.5rem;
 }
 
-.timeline-dot {
-    display: none;
+.entry {
+    padding: 0.9rem 0;
 }
 
-.timeline-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.2rem 1.4rem;
+.entry + .entry {
+    border-top: 1px solid var(--border);
 }
 
-.timeline-card h3 {
+.entry h3 {
     margin-bottom: 0.25rem;
 }
 
-.timeline-card p {
+.entry p {
     color: var(--muted);
 }
 
@@ -352,7 +347,6 @@ h3 {
 .cert-list {
     display: grid;
     gap: 1rem;
-    margin-top: 1.4rem;
 }
 
 .cert-card {
@@ -397,7 +391,6 @@ h3 {
 .skill-groups {
     display: grid;
     gap: 1.4rem;
-    margin-top: 1.5rem;
 }
 
 .skill-group h3 {
@@ -428,7 +421,6 @@ h3 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
-    margin-top: 1.5rem;
 }
 
 .lang-card {
