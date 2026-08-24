@@ -14,6 +14,7 @@
         <a href="{{ route('home') }}" class="brand">jake<span>mandi</span></a>
         <ul class="nav-links">
             <li><a href="{{ route('home') }}"@if(request()->routeIs('home')) class="active"@endif>Home</a></li>
+            <li><a href="{{ route('education') }}"@if(request()->routeIs('education')) class="active"@endif>Education</a></li>
         </ul>
     </nav>
 </header>
