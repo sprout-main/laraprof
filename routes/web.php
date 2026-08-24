@@ -13,3 +13,12 @@ Route::get('/education', function () {
         'certifications' => config('portfolio.certifications'),
     ]);
 })->name('education');
+
+Route::get('/experience', function () {
+    return view('experience', [
+        'profile' => config('portfolio'),
+        'experience' => config('portfolio.experience'),
+        'skills' => config('portfolio.skills'),
+        'languages' => config('portfolio.languages'),
+    ]);
+})->name('experience');

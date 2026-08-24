@@ -345,6 +345,75 @@ h1 {
     font-size: 0.95rem;
 }
 
+.highlights {
+    margin-top: 0.6rem;
+    padding-left: 1.1rem;
+    color: var(--muted);
+}
+
+.highlights li + li {
+    margin-top: 0.2rem;
+}
+
+.skill-groups {
+    display: grid;
+    gap: 1.4rem;
+    margin-top: 1.5rem;
+}
+
+.skill-group h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--accent-strong);
+    margin-bottom: 0.6rem;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.lang-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.lang-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.2rem 1rem;
+    text-align: center;
+}
+
+.lang-name {
+    font-weight: 700;
+}
+
+.chip.level {
+    background: var(--accent-soft);
+    border-color: transparent;
+    color: var(--accent-strong);
+    font-size: 0.8rem;
+}
+
 .site-footer {
     border-top: 1px solid var(--border);
     background: var(--surface);
@@ -377,6 +446,10 @@ h1 {
 
     .card-grid {
         grid-template-columns: 1fr;
+    }
+
+    .lang-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .nav-links {

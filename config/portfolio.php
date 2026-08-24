@@ -37,4 +37,34 @@ return [
             'year' => '2026',
         ],
     ],
+
+    'experience' => [
+        [
+            'role' => 'Intern',
+            'org' => "Mayor's Office",
+            'place' => 'Municipality of Peñarrubia, Abra (Onsite)',
+            'period' => 'On The Job Training',
+            'highlights' => ['Completed 288 hours of On The Job Training'],
+        ],
+        [
+            'role' => 'Crew Member',
+            'org' => "McDonald's",
+            'place' => 'Bangued, Abra',
+            'period' => '2025 - 2026',
+            'highlights' => ['Over 3 months of work experience in a fast-paced retail environment'],
+        ],
+    ],
+
+    'skills' => [
+        ['group' => 'Design', 'items' => ['UI/UX Design', 'Roadmap', 'Prototyping']],
+        ['group' => 'Technical', 'items' => ['Troubleshooting', 'PC/Hardware Assembly', 'PHP', 'HTML', 'CSS', 'JavaScript', 'Full-Stack Web Development']],
+        ['group' => 'Tools', 'items' => ['Microsoft Office', 'Google Workspace']],
+    ],
+
+    'languages' => [
+        ['name' => 'Filipino', 'level' => 'Native'],
+        ['name' => 'English', 'level' => 'Professional'],
+        ['name' => 'Kapampangan', 'level' => 'Novice'],
+        ['name' => 'Ilocano', 'level' => 'Novice'],
+    ],
 ];
