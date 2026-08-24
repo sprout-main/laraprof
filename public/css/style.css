@@ -1,14 +1,14 @@
 :root {
-    --bg: #f8f9fc;
-    --surface: #ffffff;
-    --text: #1e2333;
-    --muted: #5b6478;
-    --accent: #6366f1;
-    --accent-strong: #4f46e5;
-    --accent-soft: #eef0ff;
-    --border: #e4e7f2;
-    --radius: 14px;
-    --shadow: 0 10px 30px rgba(30, 35, 51, 0.08);
+    --bg: #18191a;
+    --surface: #242526;
+    --surface-alt: #3a3b3c;
+    --text: #e4e6eb;
+    --muted: #b0b3b8;
+    --accent: #3b5998;
+    --accent-hover: #2d4373;
+    --link: #8b9dc3;
+    --border: #3e4042;
+    --radius: 4px;
 }
 
 * {
@@ -18,7 +18,7 @@
 }
 
 body {
-    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.65;
@@ -31,6 +31,15 @@ main {
     flex: 1;
 }
 
+a {
+    color: var(--link);
+}
+
+:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 2px;
+}
+
 .container {
     width: min(1040px, 92%);
     margin-inline: auto;
@@ -40,17 +49,28 @@ main {
     width: min(720px, 92%);
 }
 
+h1 {
+    font-size: clamp(1.7rem, 4vw, 2.2rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
 h2 {
     font-size: 1.6rem;
     letter-spacing: -0.01em;
 }
 
+h3 {
+    font-size: 1.12rem;
+}
+
+/* Header — solid dark bar with FB-style nav tabs */
+
 .site-header {
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(10px);
+    background: var(--surface);
     border-bottom: 1px solid var(--border);
 }
 
@@ -58,7 +78,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-block: 0.9rem;
+    min-height: 56px;
 }
 
 .brand {
@@ -69,222 +89,237 @@ h2 {
 }
 
 .brand span {
-    color: var(--accent);
+    color: var(--link);
 }
 
 .nav-links {
     display: flex;
-    gap: 1.4rem;
+    gap: 0.25rem;
     list-style: none;
+    align-self: stretch;
+}
+
+.nav-links li {
+    display: flex;
 }
 
 .nav-links a {
+    display: flex;
+    align-items: center;
+    padding: 0 0.9rem;
     text-decoration: none;
     color: var(--muted);
     font-weight: 600;
     font-size: 0.95rem;
-    transition: color 0.2s ease;
+    border-bottom: 3px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-.nav-links a:hover,
+.nav-links a:hover {
+    color: var(--text);
+    border-bottom-color: rgba(139, 157, 195, 0.35);
+}
+
 .nav-links a.active {
-    color: var(--accent-strong);
+    color: var(--text);
+    border-bottom-color: var(--accent);
 }
 
-.hero {
-    padding-block: clamp(3rem, 9vw, 5.5rem) clamp(2rem, 6vw, 4rem);
+/* Profile header — 2011 timeline-style cover + overlapping square avatar */
+
+.profile-header {
+    padding-block: 1.5rem 2rem;
 }
 
-.hero-grid {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: clamp(1.8rem, 5vw, 3.5rem);
-    align-items: center;
+.cover-band {
+    height: clamp(150px, 24vw, 260px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius) var(--radius) 0 0;
+    background: linear-gradient(160deg, var(--accent-hover) 0%, #18191a 90%);
+}
+
+.profile-panel {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 var(--radius) var(--radius);
+    padding: 0 1.75rem 1.4rem;
 }
 
 .avatar {
-    border-radius: 50%;
-    box-shadow: var(--shadow);
+    position: relative;
+    display: block;
+    width: 168px;
+    height: 168px;
+    border-radius: var(--radius);
+    border: 4px solid var(--surface);
+    background: var(--accent);
+    margin-top: -84px;
 }
 
-.eyebrow {
-    display: inline-block;
-    background: var(--accent-soft);
-    color: var(--accent-strong);
-    font-weight: 700;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    padding: 0.35rem 0.85rem;
-    border-radius: 999px;
-    margin-bottom: 0.9rem;
+.profile-meta {
+    flex: 1 1 240px;
+    padding-bottom: 0.2rem;
 }
 
-h1 {
-    font-size: clamp(2.1rem, 5vw, 3rem);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.8rem;
+.profile-role {
+    color: var(--muted);
+    font-weight: 600;
 }
 
-.lead {
-    font-size: 1.15rem;
+.profile-tagline {
     color: var(--muted);
     max-width: 34rem;
 }
 
-.hero-actions {
+.profile-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.8rem;
-    margin-top: 1.6rem;
+    gap: 0.6rem;
+    padding-bottom: 0.2rem;
 }
+
+/* Flat FB-era buttons */
 
 .btn {
     display: inline-block;
-    padding: 0.7rem 1.5rem;
-    border-radius: 999px;
+    padding: 0.55rem 1.2rem;
+    border-radius: var(--radius);
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     text-decoration: none;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    transition: background 0.15s ease;
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--accent), #8b5cf6);
+    background: var(--accent);
     color: #ffffff;
-    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35);
 }
 
-.btn-ghost {
-    border: 2px solid var(--border);
+.btn-primary:hover {
+    background: var(--accent-hover);
+}
+
+.btn-secondary {
+    background: var(--surface-alt);
     color: var(--text);
-    background: var(--surface);
 }
 
-.btn:hover {
-    transform: translateY(-2px);
+.btn-secondary:hover {
+    background: #4e5052;
 }
+
+/* Boxed sections with small header strips */
 
 .section {
-    padding-block: clamp(2.4rem, 6vw, 3.6rem);
+    padding-block: clamp(1.6rem, 4vw, 2.4rem);
 }
 
-.section-alt {
+.panel {
     background: var(--surface);
-    border-top: 1px solid var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.panel-head {
+    background: var(--surface-alt);
     border-bottom: 1px solid var(--border);
+    border-radius: var(--radius) var(--radius) 0 0;
+    padding: 0.65rem 1.2rem;
 }
 
-.section h2 {
-    margin-bottom: 1rem;
+.panel-head h2 {
+    font-size: 0.98rem;
+    letter-spacing: 0;
 }
 
-.section-sub {
-    color: var(--muted);
-    margin-bottom: 1.5rem;
+.panel-body {
+    padding: 1.2rem;
 }
 
 .bio {
     color: var(--muted);
-    font-size: 1.05rem;
+    font-size: 1.02rem;
 }
 
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+/* Contact Information — old FB label/value info table */
+
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.contact-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.2rem 1.3rem;
-    text-decoration: none;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.contact-card:not(.static):hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow);
-}
-
-.contact-label {
-    font-size: 0.78rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    color: var(--accent-strong);
-}
-
-.contact-value {
+.info-table th {
+    width: 120px;
+    text-align: right;
+    vertical-align: top;
+    color: var(--muted);
     font-weight: 600;
+    padding: 0.55rem 1rem 0.55rem 0;
+}
+
+.info-table td {
+    vertical-align: top;
+    padding: 0.55rem 0;
     overflow-wrap: anywhere;
 }
 
+.info-table tr + tr th,
+.info-table tr + tr td {
+    border-top: 1px solid var(--border);
+}
+
+/* Inner page heads */
+
 .page-head {
-    padding-block: clamp(2.6rem, 7vw, 4.2rem) 0.5rem;
+    padding-block: clamp(2.2rem, 6vw, 3.4rem) 0.25rem;
 }
 
 .page-head h1 {
     margin-bottom: 0.5rem;
 }
 
+.eyebrow {
+    display: block;
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+}
+
+.lead {
+    font-size: 1.08rem;
+    color: var(--muted);
+    max-width: 36rem;
+}
+
+/* Entry rows — clean bordered rows replacing timelines */
+
 .timeline {
-    position: relative;
-    margin-top: 1.8rem;
-    padding-left: 1.6rem;
     display: grid;
-    gap: 1.4rem;
-}
-
-.timeline::before {
-    content: "";
-    position: absolute;
-    left: 6px;
-    top: 8px;
-    bottom: 8px;
-    width: 3px;
-    border-radius: 3px;
-    background: linear-gradient(180deg, var(--accent), #8b5cf6);
-    opacity: 0.35;
-}
-
-.timeline-item {
-    position: relative;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
 .timeline-dot {
-    position: absolute;
-    left: -1.6rem;
-    top: 1.55rem;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: var(--accent);
-    border: 3px solid var(--surface);
-    box-shadow: 0 0 0 3px var(--accent-soft);
+    display: none;
 }
 
 .timeline-card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 1.3rem 1.5rem;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.timeline-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow);
+    padding: 1.2rem 1.4rem;
 }
 
 .timeline-card h3 {
-    font-size: 1.12rem;
     margin-bottom: 0.25rem;
 }
 
@@ -295,33 +330,36 @@ h1 {
 .period {
     font-size: 0.82rem;
     font-weight: 700;
-    color: var(--accent-strong);
+    color: var(--link);
     text-transform: uppercase;
     letter-spacing: 0.06em;
 }
 
 .badge {
     display: inline-block;
-    background: #dcfce7;
-    color: #15803d;
+    background: rgba(59, 89, 152, 0.28);
+    border: 1px solid var(--accent);
+    color: var(--link);
     font-style: normal;
     font-size: 0.72rem;
-    padding: 0.15rem 0.6rem;
-    border-radius: 999px;
+    padding: 0.05rem 0.5rem;
+    border-radius: 3px;
     vertical-align: middle;
+    text-transform: none;
+    letter-spacing: 0;
 }
 
 .cert-list {
     display: grid;
     gap: 1rem;
-    margin-top: 0.4rem;
+    margin-top: 1.4rem;
 }
 
 .cert-card {
     display: flex;
     align-items: center;
     gap: 1.2rem;
-    background: var(--bg);
+    background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 1.1rem 1.3rem;
@@ -329,10 +367,11 @@ h1 {
 
 .cert-year {
     flex-shrink: 0;
-    background: var(--accent-soft);
-    color: var(--accent-strong);
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--link);
     font-weight: 800;
-    border-radius: 10px;
+    border-radius: var(--radius);
     padding: 0.45rem 0.8rem;
 }
 
@@ -365,7 +404,7 @@ h1 {
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.07em;
-    color: var(--accent-strong);
+    color: var(--muted);
     margin-bottom: 0.6rem;
 }
 
@@ -376,12 +415,13 @@ h1 {
 }
 
 .chip {
-    background: var(--surface);
+    background: transparent;
     border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 0.35rem 0.9rem;
+    border-radius: var(--radius);
+    padding: 0.3rem 0.8rem;
     font-size: 0.9rem;
     font-weight: 600;
+    color: var(--text);
 }
 
 .lang-grid {
@@ -396,7 +436,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    background: var(--bg);
+    background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 1.2rem 1rem;
@@ -408,51 +448,58 @@ h1 {
 }
 
 .chip.level {
-    background: var(--accent-soft);
-    border-color: transparent;
-    color: var(--accent-strong);
+    color: var(--link);
     font-size: 0.8rem;
 }
+
+/* Footer — dark bar, small muted centered text */
 
 .site-footer {
     border-top: 1px solid var(--border);
     background: var(--surface);
-    padding-block: 1.4rem;
-    margin-top: 2rem;
+    padding-block: 1.1rem;
+    margin-top: 2.5rem;
 }
 
 .footer-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    text-align: center;
     color: var(--muted);
-    font-size: 0.92rem;
+    font-size: 0.85rem;
 }
 
 .footer-inner a {
-    color: var(--accent-strong);
+    color: var(--link);
     text-decoration: none;
     font-weight: 600;
 }
 
+.footer-inner a:hover {
+    text-decoration: underline;
+}
+
 @media (max-width: 760px) {
-    .hero-grid {
-        grid-template-columns: 1fr;
+    .profile-panel {
+        flex-direction: column;
+        align-items: center;
         text-align: center;
-        justify-items: center;
+        padding-inline: 1.25rem;
     }
 
-    .card-grid {
-        grid-template-columns: 1fr;
+    .profile-actions {
+        justify-content: center;
+        padding-bottom: 0.3rem;
     }
 
     .lang-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .nav-links {
-        gap: 1rem;
+    .nav {
+        min-height: 50px;
+    }
+
+    .nav-links a {
+        padding: 0 0.6rem;
+        font-size: 0.88rem;
     }
 }

@@ -26,8 +26,7 @@
 
 <footer class="site-footer">
     <div class="container footer-inner">
-        <p>&copy; {{ date('Y') }} {{ config('portfolio.name') }}</p>
-        <a href="mailto:{{ config('portfolio.email') }}">{{ config('portfolio.email') }}</a>
+        <p>&copy; {{ date('Y') }} {{ config('portfolio.name') }} &middot; <a href="mailto:{{ config('portfolio.email') }}">{{ config('portfolio.email') }}</a></p>
     </div>
 </footer>
 </body>
