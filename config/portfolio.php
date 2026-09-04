@@ -112,7 +112,7 @@ return [
             'role' => 'IT Intern',
             'hours' => '288 Hours OJT',
             'org' => "Mayor's Office, Municipality of Peñarrubia, Abra",
-            'period' => 'Dec 2025 — Mar 2026',
+            'period' => 'Mar 2023 — Apr 2023',
             'location' => 'Onsite',
             'highlights' => [
                 'Administrative digitization, IT troubleshooting, and records processing.',
@@ -121,7 +121,7 @@ return [
         [
             'role' => 'Crew Member',
             'org' => "McDonald's, Bangued, Abra",
-            'period' => 'Mar 2023 — Apr 2023',
+            'period' => 'Dec 2025 — Mar 2026',
             'highlights' => [
                 'Fast-paced customer service, inventory handling, and team coordination.',
             ],
