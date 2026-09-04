@@ -25,6 +25,7 @@
                 <a href="#skills" class="hover:text-amber-700 transition-colors">Skills</a>
                 <a href="#projects" class="hover:text-amber-700 transition-colors">Projects</a>
                 <a href="#experience" class="hover:text-amber-700 transition-colors">Experience</a>
+                <a href="#education" class="hover:text-amber-700 transition-colors">Education</a>
             </div>
             <a href="mailto:{{ config('portfolio.email') }}" class="group flex items-center gap-2 pl-4 pr-1.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500/15 via-red-500/10 to-amber-500/15 hover:from-amber-500/25 hover:to-red-500/20 text-stone-900 text-xs font-semibold border border-amber-500/30 transition-all shadow-sm">
                 <span class="hidden sm:inline">Get in Touch</span>
