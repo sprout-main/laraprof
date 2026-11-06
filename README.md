@@ -27,12 +27,10 @@
 <p align="center">
   <a href="#-project-overview">Overview</a> •
   <a href="#-featured-systems-showcase">Featured Systems</a> •
-  <a href="#-interactive-features--motion-engine">Motion Engine</a> •
   <a href="#-credentials--certifications">Credentials</a> •
   <a href="#-technical-stack">Tech Stack</a> •
   <a href="#-local-installation">Installation</a> •
   <a href="#-deployment-architecture">Deployment</a> •
-  <a href="#-license">License</a>
 </p>
 
 </div>
