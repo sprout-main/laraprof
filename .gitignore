@@ -25,3 +25,12 @@ Homestead.yaml
 Thumbs.db
 .opencode
 
+# Archives, scratch assets & IDE assistant metadata
+*.zip
+*.docx
+.claude/
+.cursor/
+.gemini/
+/certs/
+/somms/
+

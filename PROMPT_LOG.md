@@ -98,3 +98,28 @@
 * Result/Output: Rebuilt the portfolio from the dark Facebook-inspired theme to the Imperial Porcelain / Radiant Gold & Crimson Glass spec (#FAFAF9 Alabaster Ivory canvas, 24k gold + royal crimson accents, double-bezel concentric porcelain cards, motion.dev spring easing, WebGL ambient golden-stardust & crimson caustics, zero layout drift).
 * Action: Accepted as-is - plan.md was implemented in full as the new visual and content spec; follow-on issues (bootstrap/env/db, particle tuning, nav brand, hover animations) were each resolved and verified along the way.
 
+---
+
+## Session 4 — Retro Horror Film Theme, Motion Engine, S.O.M.M.S & Deployment
+
+### Task: Motion AI installation and Retro Horror Film theme planning
+* Prompt used: "censored"
+* Result/Output: Installed `motion` (v14.9.1) and executed programmatic initialization of Motion AI MCP kit. Formulated comprehensive architecture plan `woman2_retro_horror_theme_and_motion_engine_plan.md`: Midnight Grindhouse palette (#070305 cellar black, #8b0000 dried arterial crimson, #f2ead3 bleached celluloid parchment), analog CRT scanlines, 35mm film reel scroll progress indicator, Three.js floating embers and spectral mist caustics, and Motion 12 spring/scroll physics engine.
+* Action: Accepted as-is; artifact approved for implementation.
+
+### Task: Domain reconfiguration to sprout.free.nf
+* Prompt used: "use sprout.free.nf and update the zip"
+* Result/Output: Updated `APP_URL` in `.env.infinityfree` to `https://sprout.free.nf`, updated nav logo in `layouts/app.blade.php` to `sprout.free.nf`, updated `'brand'` domain and slug in `config/portfolio.php`, and updated `DEPLOY_INFINITYFREE.md`. Repackaged `laraprof-deploy.zip` with updated configurations.
+* Action: Accepted as-is; verified tests and assets.
+
+### Task: InfinityFree automated FTP deployment
+* Prompt used: "censored"
+* Result/Output: Authenticated via FTP to `ftpupload.net` using provided credentials. Streamed `laraprof-deploy.zip` (44.08 MB) directly into `sprout.free.nf/htdocs` alongside automated server-side extractor `unzip.php` (handles extraction, `.htaccess` and `.env` setup, zip cleanup, and script self-destruction).
+* Action: Accepted as-is; uploaded and verified.
+
+### Task: Enforce HTTPS SSL encryption
+* Prompt used: "fix unsecure site"
+* Result/Output: Diagnosed that `https://sprout.free.nf` had a valid ZeroSSL wildcard certificate (`*.free.nf`) active, but visitors entering plain `sprout.free.nf` loaded port 80 (HTTP) which modern browsers flag as "Not Secure". Updated `htdocs.htaccess` on the server and repository with InfinityFree edge-proxy HTTPS enforcement (`RewriteCond %{HTTP:X-Forwarded-Proto} =http` -> `RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]`). All HTTP traffic now automatically upgrades to HTTPS with the secure lock 🔒.
+* Action: Accepted as-is; live verified.
+
+---
